@@ -8,7 +8,7 @@ class PrettyMixin:
 
 
 class Pokemon(PrettyMixin):
-    def __init__(self, name, hp, level):
+    def __init__(self, input_name, hp, level):
         self.hidden_name = input_name
         self.hp = hp
         self.level = level
@@ -31,6 +31,8 @@ class Pokemon(PrettyMixin):
         print(f'Level : {self.level}')
         print("=================")
 
+    name = property(get_name, set_name)
+
 
 if __name__ == "__main__":
     p1 = Pokemon("pikachu", 35, 1)
@@ -40,6 +42,6 @@ if __name__ == "__main__":
     p2.dump()
     p2.level = 2   # direct access
     p2.info()
-    p2.set_name("watortle")   #by getter
-    print(p2.get_name())   #by setter
+    p2.name = "watortle"
+    print(p2.name)
 
